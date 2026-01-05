@@ -89,7 +89,7 @@ export const createTask = async (req, res) =>{
         })
 
         
-        res.json({task: updateTask, message: "Task updated successfully!"})
+        res.json({task: updatedTask, message: "Task updated successfully!"})
 
     }
     catch (error){
@@ -126,7 +126,7 @@ export const deleteTask = async (req, res) =>{
             return res.status(403).json({message: "You dont have admin privileges for this project"});
         }
         await prisma.task.deleteMany({
-            where: {id: {in: tasksIds}}
+            where: {id: {in: taskIds}}
         })
 
         

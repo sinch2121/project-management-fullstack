@@ -60,7 +60,7 @@ export const createProject = async (req, res) => {
         }
 
         const projectWithMembers = await prisma.project.findUnique({
-            where: {id: project.Id},
+            where: {id: project.id},
             include: {
                 members: {include: {user: true}},
                 tasks: {include: {assignee: true,comments: {include: {user: true}} }},
